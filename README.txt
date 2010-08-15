@@ -86,6 +86,18 @@ no changes needed, the improved version replaces the existing one, configuration
 
 catches duplicate artifact-ids within the dependency tree
 
+[INFO] [enforcer:enforce {execution: enforce-dependency-rules}]
+[WARNING] Rule 0: org.apache.maven.plugins.enforcer.FailOnDuplicateArtifactId failed with message:
+Found duplicate artifactId: stax-api
+  matches stax:stax-api:jar:1.0.1, imported by
+      stax:stax-api:jar:1.0.1
+        org.apache.xmlbeans:xmlbeans:jar:2.2.0
+          org.opencredo.maven.enforcer:test-global-exclusion:ear:0.0.1-SNAPSHOT
+  matches javax.xml.stream:stax-api:jar:1.0-2, imported by
+      javax.xml.stream:stax-api:jar:1.0-2
+        org.opencredo.maven.enforcer:test-global-exclusion:ear:0.0.1-SNAPSHOT
+
+
 Usage:
 
     <plugin>
