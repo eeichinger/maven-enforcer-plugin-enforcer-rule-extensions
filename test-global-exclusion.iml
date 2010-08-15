@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/it/testproject/test-global-exclusion/target/classes" />
+    <output-test url="file://$MODULE_DIR$/it/testproject/test-global-exclusion/target/test-classes" />
+    <content url="file://$MODULE_DIR$/it/testproject/test-global-exclusion">
+      <sourceFolder url="file://$MODULE_DIR$/it/testproject/test-global-exclusion/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/it/testproject/test-global-exclusion/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/it/testproject/test-global-exclusion/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: net.sf.dozer:dozer:5.2.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:3.0.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-asm:3.0.3.RELEASE" level="project" />
+  </component>
+</module>
+
