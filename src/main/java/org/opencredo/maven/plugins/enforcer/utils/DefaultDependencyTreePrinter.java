@@ -65,7 +65,7 @@ public class DefaultDependencyTreePrinter implements DependencyTreePrinter {
         for(int i=0;i<offendingNodes.length;i++) {
             DependencyNode node = offendingNodes[i];
             int j=indent;
-            while(node != null && node != rootNode) {
+            while(node != null /*&& node != rootNode*/) {
                 j += 2;
                 buf.append(org.apache.commons.lang.StringUtils.repeat(" ", j) + node.getArtifact().getId() + "\n" );
                 node = node.getParent();

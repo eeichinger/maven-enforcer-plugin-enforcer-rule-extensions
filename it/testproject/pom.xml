@@ -15,46 +15,51 @@
     </modules>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>1.0-beta-1</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.opencredo.maven.enforcer</groupId>
-                            <artifactId>enforcer-extension</artifactId>
-                            <version>0.0.1-SNAPSHOT</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+    <pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>1.0-beta-1</version>
-                <executions>
-                    <execution>
-                        <id>enforce-banned-dependencies</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <failOnDuplicateArtifactId />
-                                <bannedDependencies>
-                                    <excludes>
-                                        <exclude>commons-logging:commons-logging</exclude>
-                                    </excludes>
-                                </bannedDependencies>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.opencredo.maven.enforcer</groupId>
+                        <artifactId>enforcer-rules-extensions</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
             </plugin>
+        </plugins>
+        </pluginManagement>
+        <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.0-beta-1</version>
+        <executions>
+            <execution>
+                <id>enforce-dependency-rules</id>
+                <goals>
+                    <goal>enforce</goal>
+                </goals>
+                <configuration>
+                    <rules>
+                        <bannedDependencies>
+                            <excludes>
+                                <exclude>commons-logging:commons-logging</exclude>
+                            </excludes>
+                        </bannedDependencies>
+                        <failOnDuplicateArtifactId />
+                        <globalExcludedDependencies>
+                            <excludes>
+                                <exclude>commons-logging:commons-logging</exclude>
+                            </excludes>
+                        </globalExcludedDependencies>
+                    </rules>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
         </plugins>
     </build>
 
@@ -64,27 +69,11 @@
                 <groupId>net.sf.dozer</groupId>
                 <artifactId>dozer</artifactId>
                 <version>5.2.2</version>
-<!--
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
--->
             </dependency>
             <dependency>
                 <groupId>org.apache.xmlbeans</groupId>
                 <artifactId>xmlbeans</artifactId>
                 <version>2.2.0</version>
-<!--
-                <exclusions>
-                    <exclusion>
-                        <groupId>stax</groupId>
-                        <artifactId>stax-api</artifactId>
-                    </exclusion>
-                </exclusions>
--->
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -28,6 +28,7 @@ public abstract class AbstractBanDependencies extends AbstractBanDependenciesBas
                 buf.append( message + "\n" );
             }
 
+            boolean fail = false;
             Iterator iter = foundExcludes.iterator();
             while ( iter.hasNext() )
             {
@@ -35,11 +36,18 @@ public abstract class AbstractBanDependencies extends AbstractBanDependenciesBas
                 buf.append( "Found Banned Dependency: " + artifact.getId() + "\n" );
                 int indent = 2;
                 context.getDependencyTreePrinter().printDependencyTree(buf, artifact, indent);
+                fail = fail || postProcessBannedDependency(context, artifact);
             }
             message = buf.toString();
 
-            throw new EnforcerRuleException( message );
+            if (fail) {
+                throw new EnforcerRuleException( message );                
+            }
         }
+    }
+
+    protected boolean postProcessBannedDependency(DependencyRuleContext context, Artifact artifact) {
+        return true;
     }
 
     protected abstract Set checkDependencies(Set dependencies, Log log) throws EnforcerRuleException;
