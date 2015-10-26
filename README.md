@@ -3,16 +3,16 @@ maven-enforcer-plugin-enforcer-rule-extensions
 
 This project contains 3 extensions to  default maven-enforcer-plugin
 
-* `BannedDependencies` (improved version). Also prints dependency tree of offending artifacts
-* `FailOnDuplicateArtifactId` breaks  build of two or more artifacts with  same artifactId appear in  dependency list
-* `GlobalExcludedDependencies` finally a way to specify a global list of exclusions
+* `<BannedDependencies/>` (improved version). Also prints dependency tree of offending artifacts
+* `<FailOnDuplicateArtifactId/>` breaks  build of two or more artifacts with  same artifactId appear in  dependency list
+* `<GlobalExcludedDependencies/>` finally a way to specify a global list of exclusions
 
 
 General Usage
 =============
 
 To use these new rules you need to add the plugin dependency to the maven-enforcer-plugin. This is best done by specifying
-in the <`pluginManagement> `section:
+in the `<pluginManagement>` section:
 
 ```xml
 <build>
@@ -40,7 +40,7 @@ New Rules
 
 ### `<bannedDependencies/>`
 
-an improved version of <bannedDependencies> also prints the inclusion stack:
+An improved version of <bannedDependencies> also prints the inclusion stack:
 
 ```
 [INFO] ------------------------------------------------------------------------
@@ -57,8 +57,10 @@ Found Banned Dependency: commons-logging:commons-logging:jar:1.1.1
     commons-logging:commons-logging:jar:1.1.1
       org.opencredo.maven.enforcer:test-global-exclusion:ear:0.0.1-SNAPSHOT
 ```
-Usage:
-no changes needed, the improved version replaces the existing one, configuration happens as usual
+
+#### Usage:
+No changes needed, the improved version replaces the existing one, configuration happens as usual
+
 ```xml
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -86,7 +88,8 @@ no changes needed, the improved version replaces the existing one, configuration
 
 ### `<failOnDuplicateArtifactId/>`
 
-catches duplicate artifact-ids within the dependency tree
+Catches duplicate artifact-ids within the dependency tree
+
 ```
 [INFO] [enforcer:enforce {execution: enforce-dependency-rules}]
 [WARNING] Rule 0: org.apache.maven.plugins.enforcer.FailOnDuplicateArtifactId failed with message:
@@ -100,7 +103,8 @@ Found duplicate artifactId: stax-api
         org.opencredo.maven.enforcer:test-global-exclusion:ear:0.0.1-SNAPSHOT
 ```
 
-Usage:
+#### Usage:
+
 ```xml
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -125,9 +129,10 @@ Usage:
 
 ### `<globalExcludedDependencies/>`
 
-allows to specify a global list of exclusions. Exclusions are specified like in <bannedDependencies>
+Allows to specify a global list of exclusions. Exclusions are specified like in <bannedDependencies>
 
-Usage:
+#### Usage:
+
 ```xml
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
