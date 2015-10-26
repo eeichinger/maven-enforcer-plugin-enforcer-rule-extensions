@@ -1,9 +1,9 @@
-This project contains 3 extensions to the default maven-enforcer-plugin
+This project contains 3 extensions to  default maven-enforcer-plugin
 
 * BannedDependencies (improved version)
   also prints dependency tree of offending artifacts
 * FailOnDuplicateArtifactId
-  breaks the build of two or more artifacts with the same artifactId appear in the dependency list
+  breaks  build of two or more artifacts with  same artifactId appear in  dependency list
 * GlobalExcludedDependencies
   finally a way to specify a global list of exclusions
 
